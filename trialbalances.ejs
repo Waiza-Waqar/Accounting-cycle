@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Trial Balance</title>
+  <style>
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    title {
+      text-align: center;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    table {
+      width: 75%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+      margin-left: 10%;
+      border-radius: 5px;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      background-color: #fff;
+    }
+
+    th,
+    td {
+      border: 1px solid black;
+      padding: 8px;
+    }
+
+    th {
+      background-color: #f2f2f2;
+      background-color: blanchedalmond;
+      color: black;
+      padding: 12px;
+      text-align: left;
+      border-bottom: 2px solid #ddd;
+      border-left: 1px solid #ddd;
+      border-right: 1px solid #ddd;
+    }
+
+    .button-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .button-container button {
+      background-color: burlywood;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin: 0 10px;
+      transition: background-color 0.3s ease;
+    }
+
+    .button-container button:hover {
+      background-color: #45a049;
+      box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .button-container button:focus {
+      outline: none;
+    }
+
+    .button-container button:active {
+      transform: scale(0.95);
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Trial Balance</h1>
+  <table>
+    <tr>
+      <th>Account Head</th>
+      <th>Account Name</th>
+      <th>Debit</th>
+      <th>Credit</th>
+    </tr>
+    <% trialBalance.forEach((account)=> { %>
+      <tr>
+        <td>
+          <%= account.head %>
+        </td>
+        <td>
+          <%= account.account_name %>
+        </td>
+        <td>
+          <%= account.debit %>
+        </td>
+        <td>
+          <%= account.credit %>
+        </td>
+      </tr>
+      <% }); %>
+        <tr>
+          <th colspan="2">Total</th>
+          <th>
+            <%= totalDebit %>
+          </th>
+          <th>
+            <%= totalCredit %>
+          </th>
+        </tr>
+        
+  </table>
+  <div class="button-container">
+    <button onclick="location.href='/income'">Financial Statements</button>
+    <button onclick="location.href='/transactions'">Transactions</button>
+    <button onclick="location.href='/closing'">Generate Closing</button>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
+        integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg=="
+        crossorigin="anonymous" />
+
+    <title>Transaction</title>
+</head>
+
+<body>
+    <!--         <div class="sidebar">
+            <h2>Account Head IDs</h2>
+            <ul class="head-list">
+                <li>101-Asset</li>
+                <li>201-Liability</li>
+                <li>301-Owner Capital</li>
+                <li>401-Revenues</li>
+                <li>501-Expenses</li>
+                <li>Owner Withdrawal</li>
+    
+            </ul>
+        </div> -->
+    <div class="container">
+        <h1 class="text-center mt-3 mb-3">
+            <%= title %>
+        </h1>
+
+        <% if(action=='add' ) { %>
+            <div class="card">
+                <div class="card-header">Transactions</div>
+                <div class="card-body">
+                    <form method="POST" action="/transactions/add_transactions">
+
+                        <div class="row">
+
+                            <!--Inputs-->
+
+                            <!--Flag-->
+                            <div class="col-md-3">
+                                <div class="mb-2">
+                                    <label>Flag</label>
+                                    <select name="flag" class="form-control">
+                                        <option value="" disabled selected>Choose a flag</option>
+                                        <option value="normal">Normal</option>
+                                        <option value="adjusted">Adjusted</option>
+                                        <option value="close">Close</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!--Account ID
+                            <div class="col-md-3">
+                                <div class="mb-2">
+                                    <label>Account Id</label>
+                                    <input type="text" id="account_id" class="form-control" name="account_id">
+                                </div>
+                            </div> -->
+
+                            <!--head-->
+                            <div class="col-md-3">
+                                <div class="mb-2">
+                                    <label>Account Head</label>
+                                    <select name="head" class="form-control">
+                                        <option value="" disabled selected>Choose a head</option>
+                                        <option value="Asset">Asset</option>
+                                        <option value="Liability">Liability</option>
+                                        <option value="Owner Capital">Owner Capital</option>
+                                        <option value="Revenue">Revenue</option>
+                                        <option value="Expense">Expense</option>
+                                        <option value="Owner_Withdrawal">Owner Withdrawal</option>
+
+                                    </select>
+                                </div>
+                            </div>
+
+
+                            <!--Account name-->
+
+                            <div class="col-md-3">
+                                <div class="mb-2">
+                                    <label>Account Name</label>
+                                    <input type="text" id="account_name" class="form-control" name="account_name">
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <div class="row">
+                            <!--Date-->
+
+                            <div class="col-md-3">
+                                <div class="mb-2">
+                                    <label>Date</label>
+                                    <input type="date" id="date" class="form-control" name="date">
+                                </div>
+                            </div>
+
+
+
+                            <!--Debit-->
+
+                            <div class="col-md-3">
+                                <div class="mb-2">
+                                    <label>Debit</label>
+                                    <input type="text" id="debit" class="form-control" name="debit">
+                                </div>
+                            </div>
+
+                            <!--credit-->
+
+                            <div class="col-md-3">
+                                <div class="mb-2">
+                                    <label>Credit</label>
+                                    <input type="text" id="credit" class="form-control" name="credit">
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <input type="submit" name="submit_button" class="btn btn-primary" value="Add" />
+                            </div>
+
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+
+
+
+
+
+            </form>
+
+    </div>
+    </div>
+
+    <!--EDIT DATA-->
+
+    <% } else if(action=='edit' ){ %>
+        <div class="card">
+            <div class="card-header">Transactions</div>
+            <div class="card-body">
+                <form method="POST" action="/transactions/edit/<%= sampleTransactions.id %>">
+
+
+                    <div class="row">
+
+                        <!--Inputs-->
+
+                        <!--Flag-->
+                        <div class="col-md-3">
+                            <div class="mb-2">
+                                <label>Flag</label>
+                                <select id="flag" name="flag" class="form-control">
+                                    <option value="" disabled selected>Choose a flag</option>
+                                    <option value="normal">Normal</option>
+                                    <option value="adjusted">Adjusted</option>
+                                    <option value="close">Close</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!--Account ID
+                        <div class="col-md-3">
+                            <div class="mb-2">
+                                <label>Account Id</label>
+                                <input type="text" id="account_id" class="form-control" name="account_id"
+                                    value="<%= sampleTransactions.account_id %>">
+                            </div>
+                        </div>-->
+
+                        <!--head-->
+                        <div class="col-md-3">
+                            <div class="mb-2">
+                                <label>Account Head</label>
+                                <select id="head" name="head" class="form-control">
+                                    <option value="" disabled selected>Choose a head</option>
+                                    <option value="Asset">Asset</option>
+                                    <option value="Liability">Liability</option>
+                                    <option value="Owner_Capital">Owner Capital</option>
+                                    <option value="Revenue">Revenue</option>
+                                    <option value="Expense">Expense</option>
+                                    <option value="Owner_Withdrawal">Owner Withdrawal</option>
+
+                                </select>
+                            </div>
+                        </div>
+
+                        <!--Account name-->
+
+                        <div class="col-md-3">
+                            <div class="mb-2">
+                                <label>Account Name</label>
+                                <input type="text" id="account_name" class="form-control" name="account_name"
+                                    value="<%= sampleTransactions.account_name %>">
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <!--Date-->
+
+                        <div class="col-md-3">
+                            <div class="mb-2">
+                                <label>Date</label>
+                                <input type="date" id="date" class="form-control" name="date"
+                                    value="<%= sampleTransactions.date %>">
+                            </div>
+                        </div>
+                        <!--Debit-->
+
+                        <div class="col-md-3">
+                            <div class="mb-2">
+                                <label>Debit</label>
+                                <input type="text" id="debit" class="form-control" name="debit"
+                                    value="<%= sampleTransactions.debit %>">
+                            </div>
+                        </div>
+
+                        <!--credit-->
+
+                        <div class="col-md-3">
+                            <div class="mb-2">
+                                <label>Credit</label>
+                                <input type="text" id="credit" class="form-control" name="credit"
+                                    value="<%= sampleTransactions.credit %>">
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <input type="submit" name="submit_button" class="btn btn-primary" value="Update" />
+                        </div>
+
+                    </div>
+
+                </form>
+
+                <script>
+                    document.getElementById('flag').value = "<%= sampleTransactions.flag %>";
+                    document.getElementById('head').value = "<%= sampleTransactions.head %>";
+                </script>
+            </div>
+        </div>
+
+
+
+
+        <% } else { %>
+
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col">Transactions Entered</div>
+                        <div class="col">
+                            <a href="/transactions/add" class="btn btn-success btn-sm float-end">
+                                <i class="fa fa-plus"></i>
+                            </a>
+                            <div class="float-end"> 
+                                <a href="/income" class="btn btn-primary btn-sm me-2">
+                                    
+                                    Go to Financial Statements
+                                </a>
+                                <a href="/trialbalances" class="btn btn-primary btn-sm me-2">
+                                   
+                                    Generate Trial Balance
+                                </a>
+                                <a href="/closing" class="btn btn-primary btn-sm me-2">
+                                    <!-- No need for margin class on last button -->
+                                    Generate Closing Entries
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <tr>
+                                <th>Flag</th>
+                                <th>Date</th>
+                                <th>Account Head</th>
+                                <th>Account Name</th>
+                                <th>Debit</th>
+                                <th>Credit</th>
+                                <th>Action</th>
+                            </tr>
+
+                            <% if(sampleTransactions.length> 0)
+                                {
+                                sampleTransactions.forEach(function(data){
+                                %>
+                                <tr>
+                                    <td>
+                                        <%= data.flag %>
+                                    </td>
+                                    <td>
+                                        <%= data.date %>
+                                    </td>
+                                    <td>
+                                        <%= data.head %>
+                                    </td>
+                                    <td>
+                                        <%= data.account_name %>
+                                    </td>
+                                    <td>
+                                        <%= data.debit %>
+                                    </td>
+                                    <td>
+                                        <%= data.credit %>
+                                    </td>
+                                    <td><a href="/transactions/edit_transaction/<%= data.id %>"
+                                            class="btn btn-primary btn-sm"><i class="fa fa-pencil-square"
+                                                aria-hidden="true"></i></a>
+                                        <!--       <a href="/transactions/delete/<%= data.id %>" class="btn btn-danger btn-sm">
+                                                <i class="fa fa-minus-square" aria-hidden="true"></i>
+                                            </a> -->
+
+                                    </td>
+
+                                </tr>
+                                <% }); } else { %>
+                                    <tr>
+                                        <td colspan="7">No Data Found</td>
+                                    </tr>
+                                    <% } %>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <% } %>
+
+                </div>
+
+                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+                    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+                    crossorigin="anonymous"></script>
+
+</body>
+
+</html>

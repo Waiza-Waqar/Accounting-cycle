@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Financial Statements</title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <h1>Financial Statements</h1>
+  <!--INCOME STATEMENT-->
+  <table>
+    <thead>
+      <tr>
+        <th>Net Income</th>
+        <th>Debit</th>
+        <th>Credit</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Revenue</td>
+        <td>
+          <%= incomeStatement.revenueDebit %>
+        </td>
+        <td>
+          <%= incomeStatement.revenueCredit %>
+        </td>
+      </tr>
+      <tr>
+        <td>Expense</td>
+        <td>
+          <%= incomeStatement.expenseDebit %>
+        </td>
+        <td>
+          <%= incomeStatement.expenseCredit %>
+        </td>
+      </tr>
+      <tr>
+        <td>Net Income</td>
+        <td colspan="2">
+          <%= netIncome %>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <br>
+  <br>
+  <!--OWNER EQUITY -->
+
+  <table>
+    <thead>
+      <tr>
+        <th>Owner Equity</th>
+        <th>Debit</th>
+        <th>Credit</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Owner Capital</td>
+        <td>
+          <%= ownerEquityStatement.ownerCapitalDebit %>
+        </td>
+        <td>
+          <%= ownerEquityStatement.ownerCapitalCredit %>
+        </td>
+      </tr>
+      <tr>
+        <td>Net Income</td>
+        <td colspan="2">
+          <%= netIncome %>
+        </td>
+      </tr>
+      <tr>
+        <td>Owner Withdrawal</td>
+        <td>
+          <%= ownerEquityStatement.ownerWithdrawalDebit %>
+        </td>
+        <td>
+          <%= ownerEquityStatement.ownerWithdrawalCredit %>
+        </td>
+      </tr>
+      <tr>
+        <td>Owner Equity</td>
+        <td colspan="2">
+          <%= ownerEquity %>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <br>
+  <br>
+  <!--BALANE SHEET-->
+  <table>
+    <tbody>
+      <thead>
+        <tr>
+          <th>Balance Sheet</th>
+          <th>Debit</th>
+          <th>Credit</th>
+        </tr>
+      </thead>
+
+    <tbody>
+      <tr>
+        <td>Assets</td>
+        <td>
+          <%= balanceSheet.assetDebit %>
+        </td>
+        <td>
+          <%= balanceSheet.assetCredit %>
+        </td>
+      </tr>
+      <tr>
+        <td>Total Assets</td>
+        <td colspan="2">
+          <%= totalAssets %>
+        </td>
+      </tr>
+
+      <tr>
+        <td>Liabilites</td>
+        <td>
+          <%= balanceSheet.liabilityDebit %>
+        </td>
+        <td>
+          <%= balanceSheet.liabilityCredit %>
+        </td>
+      </tr>
+
+      <tr>
+        <td>Total Liabilites</td>
+        <td colspan="2">
+          <%= totalLiabilities %>
+        </td>
+      </tr>
+
+      <tr>
+        <td>Owner Equity</td>
+        <td colspan="2">
+          <%= ownerEquity %>
+        </td>
+      </tr>
+      <tr>
+        <td>Liabilities + Owner Equity</td>
+        <td colspan="2">
+          <%= totalLiabilitiesAndEquity %>
+        </td>
+      </tr>
+      <tr>
+        <td>Assets = Liabilites + OE</td>
+      </tr>
+      <tr>
+        <td>
+          <%= totalAssets %> = <%= totalLiabilitiesAndEquity %>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <a href="/transactions" class="btn btn-primary btn-sm float-end mx-2">
+    Go to transactions
+  </a>
+  <a href="/trialbalances" class="btn btn-primary btn-sm float-end mx-2">
+    Generate Trial Balance
+  </a>
+
+
+</body>
+
+</html>

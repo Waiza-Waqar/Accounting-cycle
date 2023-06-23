@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Closing Entries</title>
+    <style>
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    title {
+      text-align: center;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    table {
+      width: 75%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+      margin-left: 10%;
+      border-radius: 5px;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      background-color: #fff;
+    }
+
+    th,
+    td {
+      border: 1px solid black;
+      padding: 8px;
+    }
+
+    th {
+      background-color: #f2f2f2;
+      background-color: blanchedalmond;
+      color: black;
+      padding: 12px;
+      text-align: left;
+      border-bottom: 2px solid #ddd;
+      border-left: 1px solid #ddd;
+      border-right: 1px solid #ddd;
+    }
+
+    .button-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .button-container button {
+      background-color: burlywood;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin: 0 10px;
+      transition: background-color 0.3s ease;
+    }
+
+    .button-container button:hover {
+      background-color: #45a049;
+      box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .button-container button:focus {
+      outline: none;
+    }
+
+    .button-container button:active {
+      transform: scale(0.95);
+    }
+  </style>
+</head>
+
+<body>
+    <h1>Closing Entries</h1>
+    <table>
+        <tr>
+            <th>Account Name</th>
+            <th>Closing Debit</th>
+            <th>Closing Credit</th>
+        </tr>
+        <% closingEntries.forEach((entry) => { %>
+            <tr>
+                <td><%= entry.account_name %></td>
+                <td><%= entry.closing_debit %></td>
+                <td><%= entry.closing_credit %></td>
+            </tr>
+        <% }); %>
+    </table>
+    <div class="button-container">
+        <button onclick="location.href='/income'">Financial Statements</button>
+        <button onclick="location.href='/transactions'">Transactions</button>
+      </div>
+</body>
+
+</html>

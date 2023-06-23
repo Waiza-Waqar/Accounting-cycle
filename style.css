@@ -1,0 +1,114 @@
+/* CSS for Financial Statements */
+
+/* General Styles */
+
+body {
+  background-color: #f5f5f5;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+}
+
+/* Table Styles */
+
+table {
+  width: 75%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  margin-left: 10%;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+thead th {
+  background-color: #007bff;
+  color: #fff;
+  padding: 12px;
+  text-align: left;
+  border-bottom: 2px solid #ddd;
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+}
+
+tbody td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Table-specific Styles */
+
+/* Income Statement Table */
+table#income-statement-table {
+  background-color: #f9fafc;
+}
+
+table#income-statement-table th {
+  background-color: #ffc107;
+}
+
+/* Owner Equity Table */
+table#owner-equity-table {
+  background-color: #f9fafc;
+}
+
+table#owner-equity-table th {
+  background-color: #28a745;
+}
+
+/* Balance Sheet Table */
+table#balance-sheet-table {
+  background-color: #f9fafc;
+}
+
+table#balance-sheet-table th {
+  background-color: #dc3545;
+}
+
+/* Additional Styles */
+
+.section-heading {
+  margin-top: 40px;
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333;
+}
+.btn {
+  text-decoration: none;
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 4px;
+  border: none;
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  right: 40px;
+}
+
+.float-end {
+  float: right;
+}
